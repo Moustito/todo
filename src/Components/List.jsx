@@ -1,4 +1,9 @@
-export default function List({ todos, HandleDelete, handleCheck }) {
+export default function List({
+  todos,
+  displayTodos,
+  HandleDelete,
+  handleCheck,
+}) {
   //Render
   return (
     <div className="App">

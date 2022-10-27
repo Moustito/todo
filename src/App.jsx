@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import List from "./Components/List";
 
@@ -9,6 +10,7 @@ function App() {
     { id: 1, nom: "Learn React", check: false },
     { id: 2, nom: "Understood React", check: false },
   ]);
+  const [displayTodos, setDisplayTodos] = useState("");
 
   //Comportements
   function HandleDelete(id) {
@@ -35,12 +37,18 @@ function App() {
   return (
     <div className="App">
       <h1>Todo List</h1>
-      <List
-        todos={todos}
-        HandleDelete={HandleDelete}
-        handleCheck={handleCheck}
-      />
+      {todos.length > 0 ? (
+        <List
+          todos={todos}
+          displayTodos={displayTodos}
+          HandleDelete={HandleDelete}
+          handleCheck={handleCheck}
+        />
+      ) : (
+        <p style={{ color: "#4A4A4A" }}>Good Job, you have no task !</p>
+      )}
       <Form handleAdd={handleAdd} />
+      <Footer todos={todos} setDisplayTodos={setDisplayTodos} />
     </div>
   );
 }
