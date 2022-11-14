@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Footer from "./Components/Footer";
 import Form from "./Components/Form";
@@ -6,10 +6,18 @@ import List from "./Components/List";
 
 function App() {
   //State
-  const [todos, setTodos] = useState([
-    { id: 1, nom: "Learn React", check: false },
-    { id: 2, nom: "Understood React", check: false },
-  ]);
+  const savedtodos = localStorage.getItem("todos");
+  const [todos, setTodos] = useState(
+    savedtodos
+      ? JSON.parse(savedtodos)
+      : [
+          { id: 1, nom: "Learn React", check: false },
+          { id: 2, nom: "Understood React", check: false },
+        ]
+  );
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
   const [displayTodos, setDisplayTodos] = useState("");
 
   //Comportements
