@@ -17,5 +17,6 @@ Simple todo list in React.
 - Add little smooth effect/animation
 - Edit todos
 - Add a calendar
+- Add Firebase for authentication and database
 
 Lien vers l'application : [Todo List](todo-list-reapp.netlify.app)
