@@ -32,8 +32,6 @@ function App() {
     setTodos(todosCopy);
   }
   function handleCheck(id, event) {
-    // console.log(event.target.checked);
-
     const todosCopy = [...todos];
     const todoFiltre = todosCopy.filter((todoList) => id == todoList.id);
     todoFiltre[0].check = event.target.checked;
